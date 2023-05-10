@@ -63,7 +63,8 @@ const usuariosGet = async (req, res = response) => {
     const { id } = req.params;
 
     const usuario = await Usuario.findByIdAndUpdate(id,{estado:false});
-    // const usuario = await Usuario.findByIdAndDelete(id);
+    const usuarioAutenticado = req.usuarioAutenticado; 
+
     res.json({
         status:'ok',
         msg:'Registro eliminado correctamente',
