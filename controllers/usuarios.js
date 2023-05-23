@@ -22,6 +22,18 @@ const usuariosGet = async (req, res = response) => {
     });
   }
 
+  const obtenerUsuarioID = async(req, res = response) =>{
+    const { id } = req.params;
+    console.log(req.params);
+    const usuario = await Usuario.findById(id);
+
+    res.json({
+        msg:'ok',
+        usuario
+        //id
+    })
+}
+
 
   const usuariosPost =async (req, res = response) => {
    
@@ -86,5 +98,6 @@ const usuariosGet = async (req, res = response) => {
     usuariosPost,
     usuariosPut,
     usuariosPatch,
-    usuariosDelete
+    usuariosDelete,
+    obtenerUsuarioID
   }
